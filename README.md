@@ -30,7 +30,7 @@ Running this app is as simple as deploying it to a balenaCloud fleet. You can do
 
 ## Documentation
 
-Head over to our [docs](https://iotsound.github.io/) for detailed installation and usage instructions, customization options, and more!
+Head over to our [docs](https://iotsound.github.io/iotsound/) for detailed installation and usage instructions, customization options, and more!
 
 ## Motivation
 
