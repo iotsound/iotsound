@@ -7,3 +7,5 @@ node_modules
 build
 core/multiroom/server/snapweb
 labs-docs-builder
+**/*.balena
+.idea

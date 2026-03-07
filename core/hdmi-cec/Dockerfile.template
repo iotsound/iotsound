@@ -1,0 +1,30 @@
+FROM balenalib/rpi-raspbian as build
+
+WORKDIR /usr/src
+COPY core/hdmi-cec/package*.json ./
+
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y --no-install-recommends cec-utils nodejs npm
+RUN npm install
+
+#dev-cmd-live=npm run livepush
+
+COPY core/hdmi-cec/src ./src
+COPY core/hdmi-cec/tsconfig.json .
+RUN npm run build
+
+FROM balenalib/rpi-raspbian
+
+WORKDIR /usr/src
+
+COPY core/hdmi-cec/package*.json ./
+COPY --from=build /usr/src/build ./build
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends cec-utils nodejs npm
+
+RUN npm install --production
+
+
+CMD [ "npm", "start" ]

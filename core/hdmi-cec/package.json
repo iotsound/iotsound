@@ -1,0 +1,26 @@
+{
+  "name": "hdmi-cec",
+  "version": "1.0.1",
+  "description": "Sends HDMI CEC commands e.g. when sound starts playing",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "clean": "rm -rf build",
+    "build": "npm run clean && tsc --project tsconfig.json",
+    "watch": "tsc --watch --project tsconfig.json",
+    "livepush": "nodemon --watch src -e js,ts,json --exec node -r ts-node/register/transpile-only src/index.ts"
+  },
+  "author": "Manuel Reiländer <redacted@balena.io>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "balena-audio": "0.0.2",
+    "child_process": "^1.0.2",
+    "hdmi-cec": "^0.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}

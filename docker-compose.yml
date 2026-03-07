@@ -24,6 +24,17 @@ services:
       io.balena.features.balena-api: "1"
       io.balena.features.supervisor-api: 1
 
+  hdmi-cec:
+    build:
+      context: .
+      dockerfile: ./core/hdmi-cec/Dockerfile.template
+    network_mode: host
+    devices:
+      - /dev/vchiq:/dev/vchiq
+    labels:
+      io.balena.features.balena-api: "1"
+      io.balena.features.supervisor-api: 1
+
   multiroom-server:
     build: ./core/multiroom/server
     restart: on-failure
