@@ -9,5 +9,4 @@ jobs:
   flowzone:
     name: Flowzone
     uses: product-os/flowzone/.github/workflows/flowzone.yml@master
-    secrets:
-      FLOWZONE_TOKEN: ${{ secrets.FLOWZONE_TOKEN }}
+    secrets: inherit
